@@ -1,4 +1,4 @@
-#include <fstream>
+п»ї#include <fstream>
 #include <iostream>
 using namespace std;
 
@@ -13,8 +13,8 @@ using namespace std;
 typedef uint16_t WORD;
 typedef uint32_t DWORD;
 typedef int32_t LONG;
-//щоб уникнути округлення розміру структури до максимального
-//4х-байтного розміру
+//С‰РѕР± СѓРЅРёРєРЅСѓС‚Рё РѕРєСЂСѓРіР»РµРЅРЅСЏ СЂРѕР·РјС–СЂСѓ СЃС‚СЂСѓРєС‚СѓСЂРё РґРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ
+//4С…-Р±Р°Р№С‚РЅРѕРіРѕ СЂРѕР·РјС–СЂСѓ
 #pragma pack(push,1)
 struct BitmapFileHeader {
     WORD bfType;
@@ -36,31 +36,31 @@ struct BitmapInfoHeader {
     DWORD biClrUsed;
     DWORD biClrImportant;
 };
-//створення .bmp файла
-//задання параметрів полям заголовка .bmp файла і зображення
+//СЃС‚РІРѕСЂРµРЅРЅСЏ .bmp С„Р°Р№Р»Р°
+//Р·Р°РґР°РЅРЅСЏ РїР°СЂР°РјРµС‚СЂС–РІ РїРѕР»СЏРј Р·Р°РіРѕР»РѕРІРєР° .bmp С„Р°Р№Р»Р° С– Р·РѕР±СЂР°Р¶РµРЅРЅСЏ
 void CreateBmp(const char* fileName, unsigned int** colors, int
     height, int width)
 {
     BitmapFileHeader bfh = { 0 };
     BitmapInfoHeader bih = { 0 };
-    bfh.bfType = 0x4D42; //символи 'BM'
+    bfh.bfType = 0x4D42; //СЃРёРјРІРѕР»Рё 'BM'
     bfh.bfOffBits = sizeof(bfh) + sizeof(bih); //
     bfh.bfSize = bfh.bfOffBits + sizeof(colors[0][0]) * width * height;
-    // розмір кінцевого файлу
-    bih.biSize = sizeof(bih); // розмір структури
-    bih.biBitCount = 32; // 32 біт (4 байта) на піксель
-    bih.biHeight = -height; // Висота
-    bih.biWidth = width; // Ширина
-    bih.biPlanes = 1; // містить 1
-    // інші поля дорівнюють нулю
+    // СЂРѕР·РјС–СЂ РєС–РЅС†РµРІРѕРіРѕ С„Р°Р№Р»Сѓ
+    bih.biSize = sizeof(bih); // СЂРѕР·РјС–СЂ СЃС‚СЂСѓРєС‚СѓСЂРё
+    bih.biBitCount = 32; // 32 Р±С–С‚ (4 Р±Р°Р№С‚Р°) РЅР° РїС–РєСЃРµР»СЊ
+    bih.biHeight = -height; // Р’РёСЃРѕС‚Р°
+    bih.biWidth = width; // РЁРёСЂРёРЅР°
+    bih.biPlanes = 1; // РјС–СЃС‚РёС‚СЊ 1
+    // С–РЅС€С– РїРѕР»СЏ РґРѕСЂС–РІРЅСЋСЋС‚СЊ РЅСѓР»СЋ
     ofstream f;
-    f.open(fileName, ios::binary); // Відкриваємо файл для запису
-    f.write((char*)&bfh, sizeof(bfh)); // Записуємо заголовки
+    f.open(fileName, ios::binary); // Р’С–РґРєСЂРёРІР°С”РјРѕ С„Р°Р№Р» РґР»СЏ Р·Р°РїРёСЃСѓ
+    f.write((char*)&bfh, sizeof(bfh)); // Р—Р°РїРёСЃСѓС”РјРѕ Р·Р°РіРѕР»РѕРІРєРё
     f.write((char*)&bih, sizeof(bih));
-    // Записуємо зображення
+    // Р—Р°РїРёСЃСѓС”РјРѕ Р·РѕР±СЂР°Р¶РµРЅРЅСЏ
     for (int i = 0; i < height; i++)
         f.write((char*)colors[i], sizeof(colors[0][0]) * width);
-    f.close(); // Закриваємо файл
+    f.close(); // Р—Р°РєСЂРёРІР°С”РјРѕ С„Р°Р№Р»
 }
 #pragma pack (pop)
 
@@ -69,12 +69,12 @@ void drawCircle(unsigned int** color, int h, int w, int r, int foreground, int b
     {
         for (int j = 0; j < w; j++)
         {
-            //Перевод начала координат с верхнего левого края к центру экрана
+            //РџРµСЂРµРІРѕРґ РЅР°С‡Р°Р»Р° РєРѕРѕСЂРґРёРЅР°С‚ СЃ РІРµСЂС…РЅРµРіРѕ Р»РµРІРѕРіРѕ РєСЂР°СЏ Рє С†РµРЅС‚СЂСѓ СЌРєСЂР°РЅР°
             int x = j - w / 2;
             int y = -i + h / 2;
     
             if (sqrt(pow(x, 2) + pow(y, 2)) <= r) {
-                color[i][j] = foreground; //задання червоного коліру
+                color[i][j] = foreground; //Р·Р°РґР°РЅРЅСЏ С‡РµСЂРІРѕРЅРѕРіРѕ РєРѕР»С–СЂСѓ
             }
             else {
                 color[i][j] = background;
