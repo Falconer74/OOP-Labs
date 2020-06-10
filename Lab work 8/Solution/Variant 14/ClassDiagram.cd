@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Long">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAIAAADAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Long.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pair">
+    <Position X="4" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAIAgEAAAAAAAAAAAAAAAAAAQIQIAA=</HashCode>
+      <FileName>Pair.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

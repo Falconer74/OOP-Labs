@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="ComplexNumber">
+    <Position X="0.5" Y="1.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAIAAAAEAAAAAAAAAAIAAAAAAAgAQAgAAA=</HashCode>
+      <FileName>ComplexNumber.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mixed">
+    <Position X="6.25" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAoIAAgAACAAAAAAAAAAAAACAAAAIAAiACAAACA=</HashCode>
+      <FileName>Mixed.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Number">
+    <Position X="5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Number.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
